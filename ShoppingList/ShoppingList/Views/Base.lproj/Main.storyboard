@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zBo-zK-llZ">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping List-->
+        <scene sceneID="Ubg-tP-OvH">
+            <objects>
+                <tableViewController id="lQm-d8-8UH" customClass="ShoppingListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UQl-Ze-uHM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingListCell" rowHeight="60" id="2Ez-AC-ujh" customClass="ButtonTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Ez-AC-ujh" id="hAl-Bn-nSl">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UDI-ni-ckX">
+                                            <rect key="frame" x="20" y="11" width="374" height="38"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnE-ZE-Vbd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="332" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmX-PH-Qm2">
+                                                    <rect key="frame" x="336" y="0.0" width="38" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="tmX-PH-Qm2" secondAttribute="height" multiplier="1:1" id="dSh-62-rOq"/>
+                                                        <constraint firstAttribute="height" constant="38" id="lro-cO-bXW"/>
+                                                    </constraints>
+                                                    <state key="normal" image="notpurchased"/>
+                                                    <connections>
+                                                        <action selector="checkMarkButtonTapped:" destination="2Ez-AC-ujh" eventType="touchUpInside" id="HMa-Td-2KY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="UDI-ni-ckX" firstAttribute="trailing" secondItem="hAl-Bn-nSl" secondAttribute="trailingMargin" id="4HU-Ot-NEH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UDI-ni-ckX" secondAttribute="bottom" id="JS2-Pt-Abf"/>
+                                        <constraint firstItem="UDI-ni-ckX" firstAttribute="leading" secondItem="hAl-Bn-nSl" secondAttribute="leadingMargin" id="SUv-nL-HsP"/>
+                                        <constraint firstItem="UDI-ni-ckX" firstAttribute="top" secondItem="hAl-Bn-nSl" secondAttribute="topMargin" id="Udn-B6-gSe"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isPurchasedButton" destination="tmX-PH-Qm2" id="Y2K-It-AzT"/>
+                                    <outlet property="itemNameLabel" destination="FnE-ZE-Vbd" id="7qk-de-bOM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lQm-d8-8UH" id="5ib-Z1-EPj"/>
+                            <outlet property="delegate" destination="lQm-d8-8UH" id="jxS-j8-NYU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Shopping List" id="5s8-IB-V51">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yA6-FH-55L">
+                            <connections>
+                                <action selector="addNewItemButtonTapped:" destination="lQm-d8-8UH" id="mgK-QN-NEf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfO-t2-wc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986.95652173913049" y="57.589285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kAj-2B-aUA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zBo-zK-llZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bRQ-Kk-XbH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lQm-d8-8UH" kind="relationship" relationship="rootViewController" id="Djv-lJ-BsD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QL6-4d-ogx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76.811594202898561" y="57.589285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="notpurchased" width="512" height="512"/>
+    </resources>
+</document>
